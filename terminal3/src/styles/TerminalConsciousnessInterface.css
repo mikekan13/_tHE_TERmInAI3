@@ -1,0 +1,356 @@
+/* Main container with enhanced aesthetics */
+.terminal-consciousness-container {
+  background-color: #000000;
+  color: #cfe2f3;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  font-family: 'Consolas', monospace;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #22ab94;
+  overflow-x: hidden;
+}
+
+/* App header with enhanced styling */
+.app-header {
+  background-color: #000000;
+  border-bottom: 2px solid #22ab94;
+  padding: 8px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-title {
+  color: #22ab94;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  margin: 0;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Header decorative elements */
+.header-decoration {
+  position: absolute;
+  height: 2px;
+  background-color: #22ab94;
+  opacity: 0.6;
+}
+
+/* Triangle layout container */
+.triangle-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "monitor monitor"
+    "body spirit";
+  gap: 2px;
+  background-color: #222222;
+  padding: 2px;
+  max-height: 100vh;
+}
+
+/* SOUL PILLAR - Monitor section (center top) */
+.monitor-section {
+  grid-area: monitor;
+  background-color: #000000;
+  border: 2px solid #582a72;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh; /* Limit height */
+}
+
+.monitor-section .section-header {
+  background-color: #582a72;
+  color: #F5F4EF;
+  border-bottom: 1px solid #582a72;
+  padding: 8px;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.monitor-container {
+  flex: 1;
+  border-bottom: 1px solid #582a72;
+  position: relative;
+  background-color: #000000;
+  height: 350px; /* Fixed height */
+  max-height: 50vh; /* Limit height */
+}
+
+.monitor-section .instructions {
+  background-color: #111111;
+  border-top: 1px solid #582a72;
+  margin: 0;
+  padding: 8px;
+  font-size: 0.85rem;
+  color: #b4a7d6;
+}
+
+/* BODY PILLAR - Input section (bottom left) */
+.input-section {
+  grid-area: body;
+  background-color: #000000;
+  border: 2px solid #f7525f;
+  display: flex;
+  flex-direction: column;
+  min-height: 40vh;
+  position: relative;
+}
+
+.input-section, .content-section {
+  min-height: 30vh;
+  max-height: 40vh;
+}
+
+.input-section .section-header {
+  background-color: #f7525f;
+  color: #F5F4EF;
+  border-bottom: 1px solid #f7525f;
+  padding: 8px;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.input-section form {
+  border-bottom: 1px solid #f7525f;
+  background-color: #111111;
+  padding: 8px;
+}
+
+.input-section .input-container {
+  border: 1px solid #f7525f;
+  padding: 8px;
+  margin-bottom: 8px;
+  background-color: #000000;
+}
+
+.terminal-input-field label {
+  display: block;
+  margin-bottom: 5px;
+  color: #f4cccc;
+  font-size: 0.85rem;
+  padding-left: 5px;
+  border-left: 2px solid #f7525f;
+}
+
+.terminal-input {
+  width: 100%;
+  background-color: #000000;
+  border: 1px solid #f7525f;
+  color: #ffffff;
+  padding: 8px;
+  font-family: 'Consolas', monospace;
+}
+
+.terminal-submit-btn {
+  background-color: #111111;
+  color: #f7525f;
+  border: 1px solid #f7525f;
+  padding: 8px;
+  font-family: 'Consolas', monospace;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+  text-transform: uppercase;
+}
+
+.terminal-submit-btn:hover {
+  background-color: #f7525f;
+  color: #000000;
+}
+
+.terminal-status {
+  padding: 8px;
+  color: #f4cccc;
+  font-size: 0.85rem;
+  border-bottom: 1px solid #f7525f;
+  background-color: #000000;
+}
+
+/* Processing history with enhanced panel styling */
+.processing-history {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+}
+
+.processing-history-header {
+  background-color: #f7525f;
+  color: #F5F4EF;
+  padding: 5px 8px;
+  font-size: 0.9rem;
+  font-weight: normal;
+  margin: 0;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+}
+
+.history-list {
+  flex: 1;
+  overflow-y: auto;
+  background-color: #111111;
+  border: 1px solid #f7525f;
+  border-top: none;
+}
+
+.history-entry {
+  padding: 6px 8px;
+  border-bottom: 1px solid #222222;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.history-entry.processing {
+  color: #ffcc78;
+}
+
+.history-entry.pattern_recognized {
+  color: #22ab94;
+}
+
+.history-entry.pattern_familiar {
+  color: #6fa8dc;
+}
+
+.history-entry.pattern_unknown {
+  color: #f7525f;
+}
+
+/* Glitch accents on history entries */
+.history-entry::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background-color: currentColor;
+  opacity: 0.7;
+}
+
+/* SPIRIT PILLAR - Content section (bottom right) */
+.content-section {
+  grid-area: spirit;
+  background-color: #000000;
+  border: 2px solid #002f6c;
+  display: flex;
+  flex-direction: column;
+  min-height: 40vh;
+  position: relative;
+}
+
+.content-section .section-header {
+  background-color: #002f6c;
+  color: #F5F4EF;
+  border-bottom: 1px solid #002f6c;
+  padding: 8px;
+  text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.no-pages {
+  text-align: center;
+  padding: 20px;
+  color: #9fc5e8;
+  font-style: italic;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #111111;
+  border: 1px solid #002f6c;
+  margin: 8px;
+}
+
+.page-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px;
+  background-color: #111111;
+  border-bottom: 1px solid #002f6c;
+}
+
+.page-tab {
+  background-color: #111111;
+  border: 1px solid #6fa8dc;
+  color: #9fc5e8;
+  padding: 5px;
+  font-family: 'Consolas', monospace;
+  cursor: pointer;
+  font-size: 0.8rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.page-tab.active {
+  background-color: #002f6c;
+  color: #ffffff;
+  border-color: #6fa8dc;
+}
+
+.page-content {
+  flex: 1;
+  background-color: #111111;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 8px 8px 8px;
+  border: 1px solid #002f6c;
+}
+
+.page-title {
+  font-family: 'Inknut Antiqua', serif;
+  color: #ffcc78;
+  margin: 0 0 10px 0;
+  padding-bottom: 8px;
+  font-size: 1.1rem;
+  font-weight: normal;
+  text-align: center;
+  border-bottom: 1px solid #002f6c;
+}
+
+.page-text {
+  color: #F5F4EF;
+  line-height: 1.5;
+  padding: 0 5px;
+  font-size: 0.9rem;
+}
+
+/* Glitch effects throughout */
+.glitch-accent {
+  position: absolute;
+  background-color: currentColor;
+  opacity: 0.15;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .triangle-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "monitor"
+      "body"
+      "spirit";
+  }
+}

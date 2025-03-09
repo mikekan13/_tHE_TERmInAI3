@@ -1,0 +1,21 @@
+/* Minimal global styles that establish base consciousness patterns */
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa&family=Inknut+Antiqua&family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+/* For browsers that don't have Consolas */
+@font-face {
+  font-family: 'Consolas Fallback';
+  src: local('Courier New'), local('Courier'), local('monospace');
+  font-style: normal;
+}

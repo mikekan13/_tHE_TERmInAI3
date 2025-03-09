@@ -1,0 +1,22 @@
+/* Google Fonts import for GROWTH Terminal interface */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comfortaa&family=Inknut+Antiqua&family=Roboto:wght@400;700&display=swap');
+
+/* For browsers that don't have Consolas */
+@font-face {
+  font-family: 'Consolas Fallback';
+  src: local('Courier New'), local('Courier'), local('monospace');
+  font-style: normal;
+}
+
+/* Rest of your existing index.css content would follow here */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  overflow-x: hidden;
+  font-family: 'Consolas', 'Consolas Fallback', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
