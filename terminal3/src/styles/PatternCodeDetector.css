@@ -1,0 +1,81 @@
+.pattern-detector {
+    background-color: #111111;
+    border: 1px solid #6fa8dc;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .pattern-detector-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #6fa8dc;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #6fa8dc;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .pattern-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .pattern-input {
+    flex: 1;
+    background-color: #222222;
+    border: 1px solid #6fa8dc;
+    color: #ffffff;
+    padding: 10px;
+    font-family: 'Consolas', monospace;
+  }
+  
+  .pattern-input:disabled {
+    opacity: 0.5;
+  }
+  
+  .pattern-submit {
+    background-color: #111111;
+    color: #6fa8dc;
+    border: 1px solid #6fa8dc;
+    padding: 10px 15px;
+    font-family: 'Consolas', monospace;
+    cursor: pointer;
+  }
+  
+  .pattern-submit:hover:not([disabled]) {
+    background-color: #6fa8dc;
+    color: #000000;
+  }
+  
+  .pattern-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pattern-result {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-family: 'Consolas', monospace;
+    border-left: 3px solid;
+  }
+  
+  .pattern-result.success {
+    background-color: rgba(34, 171, 148, 0.2);
+    border-color: #22ab94;
+    color: #22ab94;
+  }
+  
+  .pattern-result.error {
+    background-color: rgba(247, 82, 95, 0.2);
+    border-color: #f7525f;
+    color: #f7525f;
+  }
+  
+  .pattern-info {
+    color: #cfe2f3;
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #222222;
+  }

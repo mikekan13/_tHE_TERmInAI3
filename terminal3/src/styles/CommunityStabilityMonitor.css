@@ -1,0 +1,134 @@
+.community-monitor {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    background-color: #000000;
+    transition: background-color 1s ease;
+  }
+  
+  .pattern-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .monitor-svg {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Triangle colors */
+  .triangle {
+    fill: rgba(0, 0, 0, 0.2);
+    stroke-width: 2;
+    transition: stroke 0.5s ease, fill 0.5s ease;
+  }
+  
+  .triangle-red {
+    stroke: #f7525f;
+  }
+  
+  .triangle-purple {
+    stroke: #582a72;
+  }
+  
+  .triangle-blue {
+    stroke: #6fa8dc;
+  }
+  
+  /* Center elements */
+  .center-circle {
+    fill: none;
+    stroke: #ffcc78;
+    stroke-width: 2;
+  }
+  
+  .center-cross {
+    stroke: #ffffff;
+    stroke-width: 2;
+  }
+  
+  /* Arc/Snake */
+  .monitor-arc {
+    fill: none;
+    stroke: #22ab94;
+    stroke-width: 4;
+    stroke-linecap: round;
+  }
+  
+  /* Status text */
+  .status-text {
+    transition: fill 0.5s ease;
+  }
+  
+  .status-text.primary {
+    fill: #22ab94;
+  }
+  
+  .status-text.secondary {
+    fill: #6fa8dc;
+  }
+  
+  .status-text.alert {
+    fill: #ffcc78;
+    animation: pulse 2s infinite;
+  }
+  
+  .status-text.info {
+    fill: #582a72;
+  }
+  
+  /* Phase-specific styles */
+  .community-monitor.hyperpositive {
+    background-color: rgba(247, 82, 95, 0.1);
+  }
+  
+  .community-monitor.positive {
+    background-color: rgba(111, 168, 220, 0.1);
+  }
+  
+  .community-monitor.neutral {
+    background-color: rgba(255, 204, 120, 0.1);
+  }
+  
+  .community-monitor.negative {
+    background-color: rgba(88, 42, 114, 0.1);
+  }
+  
+  .community-monitor.hypernegative {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Glitch effect */
+  .community-monitor.glitching .triangle {
+    animation: colorShift 0.5s ease;
+  }
+  
+  .community-monitor.glitching .status-text {
+    animation: textGlitch 0.3s ease;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+  
+  @keyframes colorShift {
+    0%, 100% { stroke-width: 2; }
+    25% { stroke-width: 4; stroke: #ffcc78; }
+    50% { stroke-width: 1; }
+    75% { stroke-width: 3; stroke: #f7525f; }
+  }
+  
+  @keyframes textGlitch {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(-3px); }
+    75% { transform: translateX(1px); }
+  }

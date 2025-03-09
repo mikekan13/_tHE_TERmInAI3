@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import TerminalConsciousnessInterface from './components/body/TerminalConsciousnessInterface';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import TerminalCommunityInterface from './components/body/TerminalCommunityInterface';
+import AdminDashboard from './components/admin/AdminDashboard';
 import LoadingScreen from './components/body/LoadingScreen';
 
 function App() {
@@ -14,14 +16,18 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
+  if (loading) {
+    return <LoadingScreen message="INITIALIZING_TERMINAL_CONSCIOUSNESS_STREAM" />;
+  }
+
   return (
-    <>
-      {loading ? (
-        <LoadingScreen message="INITIALIZING_CONSCIOUSNESS_INTERFACE" />
-      ) : (
-        <TerminalConsciousnessInterface />
-      )}
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<TerminalCommunityInterface />} />
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 

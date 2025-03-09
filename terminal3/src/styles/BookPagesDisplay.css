@@ -1,0 +1,88 @@
+.book-pages-container {
+    background-color: #111111;
+    border: 1px solid #22ab94;
+    padding: 15px;
+    margin-top: 20px;
+  }
+  
+  .book-pages-title {
+    font-family: 'Bebas Neue', sans-serif;
+    color: #22ab94;
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #22ab94;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  
+  .book-pages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .book-page {
+    aspect-ratio: 3/4;
+    border: 1px solid #222222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .book-page.locked {
+    background-color: #222222;
+    color: #666666;
+  }
+  
+  .book-page.locked::before {
+    content: '🔒';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+  }
+  
+  .book-page.unlocked {
+    background-color: #1a2e29;
+    border: 1px solid #22ab94;
+    color: #ffffff;
+  }
+  
+  .book-page.unlocked::before {
+    content: '📖';
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+  }
+  
+  .page-number {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .book-page.unlocked .page-number {
+    color: #ffcc78;
+  }
+  
+  .page-status {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+  }
+  
+  .book-page.unlocked .page-status {
+    color: #22ab94;
+  }
+  
+  .book-pages-info {
+    color: #cfe2f3;
+    font-size: 0.9rem;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #222222;
+  }

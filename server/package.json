@@ -1,0 +1,25 @@
+{
+    "name": "terminal-community-server",
+    "version": "1.0.0",
+    "description": "Backend server for the GROWTH Terminal Community Interface",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "server": "nodemon server.js",
+        "client": "npm start --prefix ../",
+        "dev": "concurrently \"npm run server\" \"npm run client\""
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "config": "^3.3.12",
+        "cors": "^2.8.5",
+        "express": "^4.21.2",
+        "express-validator": "^7.2.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^7.8.6"
+    },
+    "devDependencies": {
+        "concurrently": "^8.2.2",
+        "nodemon": "^3.1.9"
+    }
+}
