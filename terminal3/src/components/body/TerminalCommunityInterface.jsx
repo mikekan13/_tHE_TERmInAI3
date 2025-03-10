@@ -56,24 +56,17 @@ const TerminalCommunityInterface = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
   
-  // Fetch messages from API
+  // Fetch messages and unlocked pages from API (simulated)
   useEffect(() => {
     const fetchMessages = async () => {
       try {
-        // In a full implementation, this would call your API
-        // For now, we'll skip the actual API call
-        
-        // Simulate API message fetch
         console.log('Fetching messages...');
-        
-        // In actual implementation, uncomment this code:
+        // Uncomment and implement actual API call when ready.
         /*
         const response = await fetch('/api/messages');
         const data = await response.json();
-        
         if (data.success) {
           setMessages(data.messages);
-          
           if (data.stabilityValue !== undefined) {
             setStabilityValue(data.stabilityValue);
           }
@@ -84,20 +77,13 @@ const TerminalCommunityInterface = () => {
       }
     };
     
-    // Fetch unlocked pages
     const fetchUnlockedPages = async () => {
       try {
-        // In a full implementation, this would call your API
-        // For now, we'll skip the actual API call
-        
-        // Simulate API unlocked pages fetch
         console.log('Fetching unlocked pages...');
-        
-        // In actual implementation, uncomment this code:
+        // Uncomment and implement actual API call when ready.
         /*
         const response = await fetch('/api/messages/unlocked-pages');
         const data = await response.json();
-        
         if (data.success) {
           setUnlockedPages(data.unlockedPages);
         }
@@ -110,7 +96,6 @@ const TerminalCommunityInterface = () => {
     fetchMessages();
     fetchUnlockedPages();
     
-    // Set up interval to fetch updates periodically
     const interval = setInterval(() => {
       fetchMessages();
       fetchUnlockedPages();
@@ -125,10 +110,6 @@ const TerminalCommunityInterface = () => {
     if (!inputMessage.trim() || !canSubmit) return;
     
     try {
-      // In a full implementation, this would call your API
-      // For now, we'll simulate the API call
-      
-      // Simulate message submission
       const newMessage = {
         id: Date.now(),
         content: inputMessage,
@@ -137,7 +118,8 @@ const TerminalCommunityInterface = () => {
         stabilityImpact: (Math.random() * 10) - 5 // Random impact between -5 and 5
       };
       
-      setMessages([...messages, newMessage]);
+      // Use functional update to avoid stale state
+      setMessages(prevMessages => [...prevMessages, newMessage]);
       setInputMessage('');
       
       // Update stability value
@@ -146,25 +128,19 @@ const TerminalCommunityInterface = () => {
         return Math.max(-100, Math.min(100, newValue));
       });
       
-      // In real implementation, we'd get this from the API response
-      // For now, simulate hitting the rate limit
       // Simulate hitting rate limit after submission
       setCanSubmit(false);
       
-      // In actual implementation, uncomment this code:
+      // Uncomment and implement actual API call when ready.
       /*
       const response = await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ 
-          content: inputMessage
-        }),
+        body: JSON.stringify({ content: inputMessage }),
       });
-      
       const result = await response.json();
-      
       if (result.success) {
         const newMessage = {
           id: result.messageId,
@@ -173,14 +149,11 @@ const TerminalCommunityInterface = () => {
           timestamp: new Date().toISOString(),
           stabilityImpact: result.stabilityImpact || 0
         };
-        
-        setMessages([...messages, newMessage]);
+        setMessages(prevMessages => [...prevMessages, newMessage]);
         setInputMessage('');
-        
         if (result.newStabilityValue !== undefined) {
           setStabilityValue(result.newStabilityValue);
         }
-        
         setCanSubmit(!result.limitReached);
       } else {
         alert(result.message || 'Failed to send message.');
@@ -195,12 +168,11 @@ const TerminalCommunityInterface = () => {
   // Handle pattern code detection
   const handleCodeDetected = (pageNumber) => {
     if (!unlockedPages.includes(pageNumber)) {
-      setUnlockedPages([...unlockedPages, pageNumber].sort((a, b) => a - b));
+      setUnlockedPages(prevPages => [...prevPages, pageNumber].sort((a, b) => a - b));
       
       // Increase stability when a page is unlocked
       setStabilityValue(prev => Math.min(100, prev + 10));
       
-      // Add a terminal message about the unlocked page
       const unlockMessage = {
         id: Date.now(),
         content: `[PATTERN_RECOGNIZED] Page ${pageNumber} of the GROWTH documentation has been unlocked. Congratulations on your pattern recognition abilities.`,
@@ -208,7 +180,8 @@ const TerminalCommunityInterface = () => {
         timestamp: new Date().toISOString()
       };
       
-      setMessages([...messages, unlockMessage]);
+      // Use functional update to safely add the new terminal message
+      setMessages(prevMessages => [...prevMessages, unlockMessage]);
     }
   };
   
