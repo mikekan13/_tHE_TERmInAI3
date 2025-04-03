@@ -1,81 +1,119 @@
-.pattern-detector {
-    background-color: #111111;
-    border: 1px solid #6fa8dc;
-    padding: 15px;
-    margin-top: 20px;
-  }
-  
-  .pattern-detector-title {
-    font-family: 'Bebas Neue', sans-serif;
-    color: #6fa8dc;
-    margin: 0 0 15px 0;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #6fa8dc;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-  }
-  
-  .pattern-form {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 15px;
-  }
-  
-  .pattern-input {
-    flex: 1;
-    background-color: #222222;
-    border: 1px solid #6fa8dc;
-    color: #ffffff;
-    padding: 10px;
-    font-family: 'Consolas', monospace;
-  }
-  
-  .pattern-input:disabled {
-    opacity: 0.5;
-  }
-  
-  .pattern-submit {
-    background-color: #111111;
-    color: #6fa8dc;
-    border: 1px solid #6fa8dc;
-    padding: 10px 15px;
-    font-family: 'Consolas', monospace;
-    cursor: pointer;
-  }
-  
-  .pattern-submit:hover:not([disabled]) {
-    background-color: #6fa8dc;
-    color: #000000;
-  }
-  
-  .pattern-submit:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
-  
-  .pattern-result {
-    margin-bottom: 15px;
-    padding: 10px;
-    font-family: 'Consolas', monospace;
-    border-left: 3px solid;
-  }
-  
-  .pattern-result.success {
-    background-color: rgba(34, 171, 148, 0.2);
-    border-color: #22ab94;
-    color: #22ab94;
-  }
-  
-  .pattern-result.error {
-    background-color: rgba(247, 82, 95, 0.2);
-    border-color: #f7525f;
-    color: #f7525f;
-  }
-  
-  .pattern-info {
-    color: #cfe2f3;
-    font-size: 0.9rem;
-    text-align: center;
-    padding-top: 10px;
-    border-top: 1px solid #222222;
-  }
+.pattern-detector-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #000000;
+  border: 1px solid #002f6c;
+  color: #F5F4EF;
+  font-family: 'Consolas', monospace;
+  overflow: hidden;
+}
+
+/* Empty state */
+.no-patterns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 1rem;
+  color: #6fa8dc;
+  line-height: 1.5;
+}
+
+/* Patterns list */
+.patterns-list {
+  padding: 0.5rem;
+  overflow-y: auto;
+  border-bottom: 1px solid #002f6c;
+  max-height: 50%;
+}
+
+.patterns-list h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #002f6c;
+  font-weight: normal;
+}
+
+.pattern-item {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 47, 108, 0.1);
+  border-left: 2px solid #002f6c;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.pattern-item:hover {
+  background-color: rgba(0, 47, 108, 0.2);
+}
+
+.pattern-item.selected {
+  background-color: rgba(0, 47, 108, 0.3);
+  border-left-color: #6fa8dc;
+}
+
+.pattern-code {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.pattern-name {
+  font-size: 0.85rem;
+  color: #9fc5e8;
+}
+
+/* Pattern details */
+.pattern-details {
+  padding: 0.5rem;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.pattern-details h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  color: #002f6c;
+  font-weight: normal;
+}
+
+.pattern-detail-content {
+  padding: 0.5rem;
+  background-color: rgba(0, 47, 108, 0.05);
+  border: 1px solid rgba(0, 47, 108, 0.2);
+}
+
+.pattern-detail-row {
+  margin-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 0.8rem;
+  color: #6fa8dc;
+  margin-bottom: 0.25rem;
+}
+
+.detail-value {
+  font-size: 0.9rem;
+}
+
+/* Special pattern highlights */
+.pattern-item[data-rarity="Extremely Rare"] {
+  border-left-color: #ffcc78;
+  background-color: rgba(255, 204, 120, 0.1);
+}
+
+/* Animations */
+@keyframes patternPulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.pattern-item.new {
+  animation: patternPulse 2s infinite;
+}

@@ -1,1 +1,29 @@
-{"name":"growth-terminal-community","version":"1.0.0","description":"GROWTH Terminal Community Interface","main":"server/server.js","scripts":{"start":"node server/server.js","server":"nodemon server/server.js","client":"cd client && npm start","dev":"concurrently \"npm run server\" \"npm run client\"","install-all":"npm install && cd client && npm install && cd ../server && npm install","build":"cd client && npm run build","heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd client && npm install && npm run build && cd ../server && npm install"},"dependencies":{"concurrently":"^8.2.1","react-router-dom":"^7.3.0"},"devDependencies":{"nodemon":"^3.0.1"},"engines":{"node":"16.x"}}
+{
+  "name": "growth-terminal-community",
+  "version": "1.0.0",
+  "description": "GROWTH Terminal Community Interface",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "NODE_CONFIG_DIR=./server/config node server/server.js",
+    "server": "NODE_CONFIG_DIR=./server/config nodemon server/server.js",
+    "client": "cd terminal3 && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "keywords": [
+    "growth",
+    "terminal",
+    "community"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+  
+}

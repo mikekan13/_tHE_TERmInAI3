@@ -1,0 +1,211 @@
+.central-terminal-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #22ab94;
+  background-color: #000000;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Top decoration row */
+.top-decoration-row {
+  height: 30px;
+  background-color: #22ab94;
+  position: relative;
+}
+
+.decoration-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.special-char {
+  font-family: 'Bebas Neue', sans-serif;
+  color: #000000;
+  font-size: 20px;
+  grid-column: span 1;
+  line-height: 1;
+}
+
+.spacer {
+  grid-column: span 1;
+}
+
+/* Header X row */
+.header-x-row {
+  height: 20px;
+  background-color: #22ab94;
+  color: #000000;
+  position: relative;
+}
+
+.x-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.x-char {
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #000000;
+}
+
+/* Main monitor area */
+.monitor-area {
+  flex: 1;
+  position: relative;
+  background-color: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Corner brackets */
+.corner-bracket {
+  position: absolute;
+  color: #22ab94;
+  font-family: 'Consolas', monospace;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  height: 50px;
+  justify-content: space-between;
+}
+
+.corner-bracket.left-top {
+  left: 0;
+  top: 0;
+  padding-left: 5px;
+}
+
+.corner-bracket.right-top {
+  right: 0;
+  top: 0;
+  padding-right: 5px;
+}
+
+/* Side markers */
+.side-markers {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+}
+
+.side-marker {
+  position: absolute;
+  left: 0;
+  color: #22ab94;
+  font-size: 24px;
+  font-family: 'Consolas', monospace;
+  padding-left: 5px;
+}
+
+.side-marker.left-1 {
+  top: 25%;
+}
+
+.side-marker.left-2 {
+  top: 50%;
+}
+
+.side-marker.left-3 {
+  top: 75%;
+}
+
+/* Stability monitor wrapper */
+.stability-monitor-wrapper {
+  width: calc(100% - 40px);
+  height: calc(100% - 40px);
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Footer styling */
+.terminal-footer {
+  height: 120px;
+  background-color: #000000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Pillar indicators */
+.pillar-indicators {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding: 10px 0;
+  position: absolute;
+  bottom: 75px;
+}
+
+.pillar-indicator {
+  font-family: 'Consolas', monospace;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 0 10px;
+}
+
+/* Omega symbol */
+.omega-symbol {
+  position: absolute;
+  bottom: 35px;
+  font-size: 28px;
+  color: #ffcc78;
+  background-color: #333333;
+  padding: 0 15px;
+  border: 1px solid #ffcc78;
+  font-family: 'Consolas', monospace;
+  z-index: 2;
+}
+
+/* Horizontal lines */
+.horizontal-lines {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 5px 0;
+}
+
+.line-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  margin: 3px 0;
+}
+
+.line-row span {
+  color: #22ab94;
+  font-family: 'Consolas', monospace;
+  font-size: 12px;
+}
+
+.first-row {
+  margin-bottom: 3px;
+}
+
+.second-row {
+  margin-bottom: 5px;
+}
+
+.line-row .spacer {
+  width: 40px;
+}
